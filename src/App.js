@@ -1,42 +1,48 @@
 import React, { useState } from 'react';
-import logo from './logo.svg';
 import './App.css';
-import Card from './card.js';
+import Post from './Post.js';
 
 function App() {
-  const [blogTitle, changeBlogTitle] = useState({ title: "", time: "" });
-  const [cardList, addCardList] = useState([]);
-  const [likeBtn, setLikeBtn] = useState(0);
+  const [post, setPost] = useState({ title: "", time: "" });
+  const [postList, setPostList] = useState([]);
+  const [likeCount, setLikeCount] = useState(0);
 
   function getTime() {
     const now = new Date();
     const year = now.getFullYear();
     const month = now.getMonth();
     const data = now.getDate();
-
     return `${year}년${month}월${data}일`
   }
 
-  function addContents() {
-    addCardList([blogTitle, ...cardList]);
+  function addPosts() {
+    setPostList([post, ...postList]);
   }
-  
-  function addLike() {
-    return setLikeBtn(likeBtn+1)
+
+  function inputInfo(e) {
+    setPost(
+      {
+        title: e.target.value,
+        time: getTime()
+      }
+    )
   }
+
 
   return (
     <div className="App">
       <div className="Navbar">
         <h2>Blog</h2>
       </div>
-      <input onChange={(e) => changeBlogTitle({ title: e.target.value, time: getTime() })} className="Input" placeholder="제목을 입력해주세요." ></input><button onClick={(e) => addContents(e)} className="Btn" >저장</button>
-
+      <div>
+        <input onChange={(e)=>inputInfo(e)} className="Input" placeholder="제목을 입력해주세요." />
+        <button onClick={()=>addPosts()} className="Btn" >저장</button>
+      </div>
       {
-        
-        cardList.map((title) => {
+
+        postList.map((post) => {
           return (
-            <Card title={title} />
+            <Post post={post} />
           )
         })
       }

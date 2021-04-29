@@ -43,7 +43,7 @@
   background-color: white;
 }
 
-.Card {
+.Post {
   text-align: center;
   margin: 0;
   width: 100%;
@@ -52,19 +52,19 @@
   padding-bottom: 10px;
 }
 
-.Card h3 {
+.Post h3 {
   font-size: 15px;
   margin: 10px;
   color: rgb(65, 65, 65);
 }
 
-.Card img {
+.Post img {
   margin-bottom: 10px;
   border-radius: 8px;
   opacity: 0.8;
 }
 
-.Card p {
+.Post p {
   display: block;
   margin-left: auto;
   margin-right: auto;
@@ -75,7 +75,7 @@
   text-align: right;
 }
 
-.Card .UserDate {
+.Post .UserDate {
   display: block;
   margin-left: auto;
   margin-right: auto;
@@ -88,13 +88,13 @@
   line-height: 25px;
 }
 
-.Card .UserDate img {
+.Post .UserDate img {
   display: inline-block;
   border-radius: 8px;
   vertical-align: middle;
 }
 
-.Card .Connection {
+.Post .Connection {
   display: block;
   margin-left: auto;
   margin-right: auto;
@@ -103,17 +103,17 @@
   height: 15px;
 }
 
-.Card .Connection .Like {
+.Post .Connection .Like {
  padding-left: 2px;
  font-size: 5px;
  color: #282c34;
 }
 
-.Card .Connection .TextBtn {
+.Post .Connection .CommentBtn {
   margin-left: 200px;
 }
 
-.CardDetail {
+.PostComment {
   overflow: auto;
   margin: 0;
   padding-top: 10px;
@@ -122,7 +122,7 @@
   color: #282c34;
 }
 
-.CardDetail .CommentInput {
+.PostComment .CommentInput {
   margin-top: 5px;
   margin-bottom: 5px;
   padding-left: 10px;
@@ -135,7 +135,7 @@
   color: rgb(59, 59, 59) ;
 }
 
-.CardDetail button {
+.PostComment button {
   width: 20px;
   height: 20px;
   border: 2px solid rgba(240, 237, 237, 0.973); 
