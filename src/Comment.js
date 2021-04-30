@@ -1,10 +1,10 @@
-function CardDetail() {
+function Comment() {
     return (
-      <div className="CardDetail">
+      <div className="Comment">
         <input className="CommentInput" placeholder="댓글등록"></input><button> + </button>
       </div>
     )
   }
   
 
-export default CardDetail
+export default Comment
