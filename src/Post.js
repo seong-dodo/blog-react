@@ -1,4 +1,3 @@
-import image from './image.JPG';
 import heeya from './heeya.JPG';
 import PostComment from './PostComment.js';
 import React, { useState } from 'react';

@@ -17,24 +17,30 @@ function Feed() {
 
   function getLike(id) {
     const posts = [...postList];
-    let targetPost = posts.find(post => post.id === id);
+    const targetPost = posts.find(post => post.id === id);
     targetPost.likeCount = targetPost.likeCount + 1;
     setPostList(posts);
+  }
+
+  function uploadImg(e) {
+    const objectURL = URL.createObjectURL(e.target.files[0]);
+    const uploadPost = post;
+    uploadPost.img = objectURL;
+    setPost(uploadPost);
   }
 
   function addPosts() {
     setId(id + 1)
     setPostList([post, ...postList]);
+    setPost({ id: 0, title: "", time: "", img: "", likeCount: 0 });
   }
 
   function inputInfo(e) {
-    setPost({
-      id: id,
-      title: e.target.value,
-      time: getTime(),
-      img: e.target.files,
-      likeCount: 0
-    })
+    const uploadPost = post;
+    uploadPost.id =  id;
+    uploadPost.title = e.target.value;
+    uploadPost.time = getTime();
+    setPost(uploadPost); 
   }
 
   return (
@@ -44,7 +50,7 @@ function Feed() {
       </div>
       <div>
         <input onChange={(e) => inputInfo(e)} className="Input" placeholder="제목을 입력해주세요." />
-        <input type="file" />
+        <input type="file" onChange={(e)=>{uploadImg(e)}} />
         <button onClick={() => addPosts()} className="Btn" >저장</button>
       </div>
       {
