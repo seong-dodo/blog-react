@@ -2,7 +2,7 @@ import image from './image.JPG';
 import heeya from './heeya.JPG';
 import PostComment from './PostComment.js';
 import React, { useState } from 'react';
-import './App.css';
+import './Feed.css';
 
 function Post(props) {
   const [isDisplayComment, changeDisplayComment] = useState(false);
@@ -12,9 +12,11 @@ function Post(props) {
       <div className="UserDate"><img src={heeya} width='15' height='15' />heeya</div>
       <h3> {props.post.title} </h3>
       <p> {props.post.time} </p>
-      <img src={image} width='250' height='250' />
+      <img src={props.post.img} width='250' height='250' />
       <div className="Connection">
-        <span className="Like">🧡</span>
+        <span 
+        onClick={()=>{props.getLike(props.post.id)}}
+        className="Like">🧡{props.post.likeCount}</span>
         <span 
         onClick={() => {changeDisplayComment(!isDisplayComment) }} 
         className="CommentBtn">🙋🏻‍♀️</span>
